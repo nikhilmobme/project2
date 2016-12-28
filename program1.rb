@@ -1,3 +1,5 @@
+
+#sepreating odd and even numbers
 ar = [2, 3, 7, 9, 10, 13]
 even = []
 odd = []
