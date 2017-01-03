@@ -20,11 +20,10 @@ result=Hash.new
 def writefile(result)
  	headers = ["phone number", "balance"]
  	CSV.open("output.csv", "wb") do |csv|
- 	csv<<headers 
- 		result.to_a.each  do |elem| 
- 			csv << elem
- 		end 
- 	end
+ 	   csv<<headers 
+ 		  result.to_a.each{|elem| csv << elem }
+ 		 
+ 	 end
  end
 
 
