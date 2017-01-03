@@ -1,8 +1,6 @@
     
     
 require "csv"
-   
-
 hash=Hash.new
 result=Hash.new
 
@@ -19,11 +17,18 @@ result=Hash.new
  end
  
 
- def writefile(result)
- 	
- 	CSV.open("output.csv", "wb") {|csv| result.to_a.each {|elem| csv << elem} }
+def writefile(result)
+ 	headers = ["phone number", "balance"]
+ 	CSV.open("output.csv", "wb") do |csv|
+ 	csv<<headers 
+ 		result.to_a.each  do |elem| 
+ 			csv << elem
+ 		end 
+ 	end
  end
 
 
 readfile(hash, result)
-writefile(result)     
+writefile(result) 
+
+   
