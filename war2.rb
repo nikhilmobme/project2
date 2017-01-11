@@ -1,4 +1,5 @@
 class War
+	
  
  	def input(falinp)
 		puts "enter the army forces deploying by falicornia(in th order [H, E, AT, SG]"
@@ -53,45 +54,54 @@ class War
 
     end while (i!= -1)
     end
-  end 
+ end 
    
    def finalrule(falinp,leng,x)
     i =3
-    j = 3
+    
    	begin
    	
    	if  falinp[i]!=0
+   		j=i
 
    		begin
+   			
    			if leng[j]!=0
    				if falinp[i] <= leng[j]
-   				    leng[j] -=falinp[i]
+   				    leng[j] -= falinp[i]
    					x[j] += falinp[i]
    					falinp[i]=0
-   				else leng[j]<falinp[i]
-   					x[j] += leng[j]
-   					falinp[i] -= leng[j]
-   					leng[j]=0
-                    falinp[i]= falinp[1]*2
-   				
-   				end
-   			   end
-   				    j -= 1
-   				    if (falinp[0]==0 && falinp[1]==0 && falinp[2]==0 && falinp[3]==0)
+   					 if (falinp[0]==0 && falinp[1]==0 && falinp[2]==0 && falinp[3]==0)
    				    puts "Lengaburu deploys #{x[0]}H #{x[1]}E #{x[2]}AT #{x[3]}SG and wins"
    				    break
    				    end
 
+   				else leng[j]<falinp[i]
+   					x[j] += leng[j]
+   					falinp[i] -= leng[j]
+   					leng[j]=0
+                    falinp[i] = falinp[i]*2
+                    
+
+   				end
+
+   			   end
+
+   			  j -= 1
+
+   				   
    		end while(j!=-1)
+
    	    else 
    	    i -=1
+   	    if(leng[0]==0 && leng[1]==0 && leng[2]==0 && leng[3]==0)
+	   	            puts "Lengaburu deploys #{x[0]}H #{x[1]}E #{x[2]}AT #{x[3]}SG and loss"
+                    break
+                      end
+   				    
    				    
    		end
-   		if(leng[0]==0 && leng[1]==0 && leng[2]==0 && leng[3]==0)
-	   	puts "Lengaburu deploys #{x[0]}H #{x[1]}E #{x[2]}AT #{x[3]}SG and loss"
-                    
-        end
-
+   		
 	end while(i!= -1)
 
 
